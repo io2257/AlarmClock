@@ -1,11 +1,68 @@
-[![Installs](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.better.alarm%26l%3DGoogle%2520Play%2520Installs%26m%3D%24totalinstalls)](https://play.google.com/store/apps/details?id=com.better.alarm)
-[![Rating](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.better.alarm%26l%3DGoogle%2520Play%2520Rating%26m%3D%24rating)](https://play.google.com/store/apps/details?id=com.better.alarm)
-[![Version](https://img.shields.io/endpoint?color=blue&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.better.alarm%26l%3DGoogle%2520Play%26m%3D%24version)](https://play.google.com/store/apps/details?id=com.better.alarm)
+# 주요 기능 및 수정사항
+* 기본 알람 기능에 광고 시청 기능 추가
+  ![alert_alarm_fullscreen](https://github.com/user-attachments/assets/0848c879-82a7-4bcc-95c2-1490990607b1)
 
-[![Build Status](https://github.com/yuriykulikov/AlarmClock/actions/workflows/gradle.yml/badge.svg?branch=develop)](https://github.com/yuriykulikov/AlarmClock/actions)
-[![codecov](https://codecov.io/gh/yuriykulikov/AlarmClock/branch/develop/graph/badge.svg)](https://codecov.io/gh/yuriykulikov/AlarmClock)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5af63df137746bcb45e43b4f2a78217)](https://app.codacy.com/gh/yuriykulikov/AlarmClock)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+</br></br>
+
+* 광고 시청 영상 예시 ([K-Digital Training] 벤처 스타트업 아카데미를 소개합니다!)
+![Screenshot_20240828_131533](https://github.com/user-attachments/assets/9514d819-6d80-468f-ba62-37a205c8c942)
+(출처) https://youtu.be/bNmpH27FypY?si=o447ugR9O56ya3Mh
+
+</br></br>
+
+
+* 광고 시청 이후 연관 퀴즈 풀이 예시
+![quiz](https://github.com/user-attachments/assets/f6bd5451-6cb7-4821-b0b0-94786c3547b8)
+
+
+</br></br>
+
+
+
+* 퀴즈 정답을 맞추면 일정량의 포인트를 제공
+![point_popup](https://github.com/user-attachments/assets/e7e9fc12-07da-4498-bac9-30a890f29da6)
+![Screenshot_20240828_131616](https://github.com/user-attachments/assets/41d21089-72ab-4740-8624-66833a1fe646)
+
+</br></br></br></br>
+
+
+
+# 주요 기능 별 연관 소스코드 Path
+
+### 기본 알람 기능에 광고 시청 기능 추가
+* AlarmClock/app/src/main/java/com/better/alarm/ui/alert/AlarmAlertFullScreen.kt
+</br>showAds() 메소드가 본 기능의 핵심 구현체입니다.
+
+</br></br></br></br>
+
+### 광고 시청 이후 연관 퀴즈 풀이 예시
+* AlarmClock/app/src/main/java/com/better/alarm/ui/alert/AlarmAlertFullScreen.kt
+</br>showQuiz() 메소드가 본 기능의 핵심 구현체입니다.
+
+</br></br>
+
+* AlarmClock/app/src/main/res/layout/quiz_dialog.xml
+</br></br>퀴즈 팝업의 레이아웃 정보입니다.
+
+</br></br></br></br>
+
+### 퀴즈 정답을 맞추면 일정량의 포인트를 제공
+* AlarmClock/app/src/main/java/com/better/alarm/data/PointManager.kt
+</br>Kotlin Context가 Point정보를 유지하도록 구현하였습니다.
+</br></br>
+
+* AlarmClock/app/src/main/java/com/better/alarm/ui/list/InfoFragment.kt
+</br>computeTexts 함수가 Point 정보를 표시하는 기능을 합니다.
+
+
+
+
+
+</br></br></br></br></br></br></br></br>
+
+
+
 
 # Simple alarm clock
 Simple Alarm Clock is an alarm clock for Android smartphones and tablets that brings pure alarm experience to you by combining powerful features and clean interface.
@@ -24,15 +81,3 @@ The application code is branched from AOSP and is open source. Additional featur
 
 # License
 Apache 2.0
-
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="100">](https://play.google.com/store/apps/details?id=com.better.alarm)
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="100">](https://f-droid.org/packages/com.better.alarm/)
-
-[![Installs](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Dcom.better.alarm%26l%3DGoogle%2520Play%2520Installs%26m%3D%24totalinstalls)](https://play.google.com/store/apps/details?id=com.better.alarm)
-
-# Code coverage
-[![Codecov](https://codecov.io/gh/yuriykulikov/AlarmClock/branch/develop/graphs/tree.svg)](https://codecov.io/gh/yuriykulikov/AlarmClock)
