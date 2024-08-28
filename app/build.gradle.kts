@@ -23,38 +23,38 @@ tasks.create("jacocoTestReport", JacocoReport::class.java) {
   }
 
   val fileFilter =
-    listOf(
-      "**/R.class",
-      "**/R$*.class",
-      "**/BuildConfig.*",
-      "**/Manifest*.*",
-      "**/*Test*.*",
-      "android/**/*.*",
-      "**/*\$\$serializer.class",
-    )
+      listOf(
+          "**/R.class",
+          "**/R$*.class",
+          "**/BuildConfig.*",
+          "**/Manifest*.*",
+          "**/*Test*.*",
+          "android/**/*.*",
+          "**/*\$\$serializer.class",
+      )
 
   val developDebug = "developDebug"
 
   sourceDirectories.setFrom(
-    files(listOf("$projectDir/src/main/java", "$projectDir/src/main/kotlin")))
+      files(listOf("$projectDir/src/main/java", "$projectDir/src/main/kotlin")))
 
   classDirectories.setFrom(
-    files(
-      listOf(
-        fileTree("$buildDir/intermediates/javac/$developDebug") { exclude(fileFilter) },
-        fileTree("$buildDir/tmp/kotlin-classes/$developDebug") { exclude(fileFilter) },
-      )))
+      files(
+          listOf(
+              fileTree("$buildDir/intermediates/javac/$developDebug") { exclude(fileFilter) },
+              fileTree("$buildDir/tmp/kotlin-classes/$developDebug") { exclude(fileFilter) },
+          )))
 
   // execution data from both unit and instrumentation tests
   executionData.setFrom(
-    fileTree(project.buildDir) {
-      include(
-        // unit tests
-        "jacoco/test${"developDebug".capitalize()}UnitTest.exec",
-        // instrumentation tests
-        "outputs/code_coverage/${developDebug}AndroidTest/connected/**/*.ec",
-      )
-    })
+      fileTree(project.buildDir) {
+        include(
+            // unit tests
+            "jacoco/test${"developDebug".capitalize()}UnitTest.exec",
+            // instrumentation tests
+            "outputs/code_coverage/${developDebug}AndroidTest/connected/**/*.ec",
+        )
+      })
 
   // dependsOn("test${"developDebug".capitalize()}UnitTest")
   // dependsOn("connected${"developDebug".capitalize()}AndroidTest")
@@ -71,12 +71,12 @@ tasks.withType(Test::class.java) {
 }
 
 val acraEmail =
-  project.rootProject
-    .file("local.properties")
-    .let { if (it.exists()) it.readLines() else emptyList() }
-    .firstOrNull { it.startsWith("acra.email") }
-    ?.substringAfter("=")
-    ?: System.getenv()["ACRA_EMAIL"] ?: ""
+    project.rootProject
+        .file("local.properties")
+        .let { if (it.exists()) it.readLines() else emptyList() }
+        .firstOrNull { it.startsWith("acra.email") }
+        ?.substringAfter("=")
+        ?: System.getenv()["ACRA_EMAIL"] ?: ""
 
 @Suppress("UnstableApiUsage")
 android {
@@ -142,7 +142,7 @@ android {
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
   kotlinOptions {
     freeCompilerArgs =
-      freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn" + "-opt-in=kotlin.Experimental"
+        freeCompilerArgs + "-opt-in=kotlin.RequiresOptIn" + "-opt-in=kotlin.Experimental"
 
     jvmTarget = "1.8"
   }
@@ -174,8 +174,6 @@ dependencies {
   implementation("androidx.datastore:datastore:1.0.0")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:$serializationVersion")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
-
-  implementation("com.google.android.exoplayer:exoplayer:2.18.1")
 
   testImplementation("net.wuerl.kotlin:assertj-core-kotlin:0.2.1")
   testImplementation("junit:junit:4.13.2")

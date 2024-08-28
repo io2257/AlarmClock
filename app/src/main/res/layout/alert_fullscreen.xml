@@ -110,11 +110,4 @@
         android:layout_weight="1"
         android:text="@string/alarm_alert_dismiss_text"
         android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/alert_button_show_ads"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Show Ads" />
-
 </LinearLayout>
